@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { createUseStyles } from "react-jss";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Alert from "./components/Alert/Alert";
+import CartSuccsess from "./components/CartSuccsess/CartSuccess";
+
+const useStyles = createUseStyles({
+    wrapper: {
+        padding: 20,
+    },
+});
+
+const App = () => {
+    const classes = useStyles();
+    return (
+        <div className={classes.wrapper}>
+            <Alert title="Items Not Added" type="error">
+                <div>Your items are out of stock.</div>
+            </Alert>
+            <CartSuccsess />
+        </div>
+    );
+};
 
 export default App;
